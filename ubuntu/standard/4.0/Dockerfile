@@ -468,11 +468,6 @@ RUN pyenv  global $PYTHON_38_VERSION
 RUN phpenv global $PHP_74_VERSION
 RUN rbenv  global $RUBY_27_VERSION
 
-# Install CDK
-ENV CDK_VERSION="1.54.0"
-RUN npm install -g aws-cdk@$CDK_VERSION
-
-#****************      END NODEJS     ****************************************************
 # Configure SSH
 COPY ssh_config /root/.ssh/config
 COPY runtimes.yml /codebuild/image/config/runtimes.yml
@@ -484,3 +479,7 @@ COPY amazon-ssm-agent.json          /etc/amazon/ssm/
 ENTRYPOINT ["dockerd-entrypoint.sh"]
 
 #=======================END of STD:4.0  =================
+
+# Install CDK
+ENV CDK_VERSION="1.54.0"
+RUN npm install -g aws-cdk@$CDK_VERSION
