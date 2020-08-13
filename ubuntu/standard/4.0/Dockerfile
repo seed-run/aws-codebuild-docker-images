@@ -481,5 +481,5 @@ ENTRYPOINT ["dockerd-entrypoint.sh"]
 #=======================END of STD:4.0  =================
 
 # Install CDK
-ENV CDK_VERSION="1.54.0"
+ENV CDK_VERSION="1.55.0"
 RUN npm install -g aws-cdk@$CDK_VERSION
